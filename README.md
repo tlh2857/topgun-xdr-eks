@@ -23,12 +23,20 @@ Commands 3 and 4 clone this GitHub repo and deploy the CloudFormation template w
   ```
    aws ecr create-repository --repository-name detection-container-repository
   ```
-6. Let's pull the image, tag it, and upload it to the ECR repository that we just created. In CloudShell run:
+6. We'll soon push an image to ECR. First we'll authenticate the docker CLI in our CloudShell instance to ECR. Copy the "repositoryUri" which was logged after command 6. Then run:
+   ```
+   aws ecr get-login-password | docker login --username AWS --password-stdin YOUR-ECR-REPO-URI
+   ```
+   Make sure to replate YOUR-ECR-REPO-URI with the repositoryUri value, without double quotes ("")
+8. Let's pull the DetectionContainer image, tag it, and upload it to the ECR repository that we just created. In CloudShell run:
    ```
    docker pull quay.io/crowdstrike/detection-container
+   docker tag quay.io/crowdstrike/detection-container YOUR-ECR-REPO-URI:latest
+   docker push YOUR-ECR-REPO-URI:latest
+   ```
+   Make sure to replate YOUR-ECR-REPO-URI with the repositoryUri value, without double quotes ("")
    
-
-You could also build it from scratch using the Dockefile that's included with the GitHub repository for DetectionContainer. However, for simplicity, I chose to let you just build it and push it. Feel free to do otherwise. https://github.com/CrowdStrike/detection-container
+   BTW, You could also build it from scratch using the Dockefile that's included with the GitHub repository for DetectionContainer. However, for simplicity, I chose to let you just build it and push it. Feel free to do otherwise. https://github.com/CrowdStrike/detection-container
 
 
 
