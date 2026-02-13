@@ -13,7 +13,7 @@
    ```
    aws cloudformation create-stack \
    --stack-name eks-nodegroup-stack \
-   --template-body file://eks-nodegroup-step2.yaml \
+   --template-body file://eks-cluster-and-vpc.yaml \
    --parameters ParameterKey=ClusterName,ParameterValue=my-eks-cluster
    ```
 
