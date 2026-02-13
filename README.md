@@ -91,3 +91,13 @@ See Documentation: https://docs-cortex.paloaltonetworks.com/r/Cortex-XDR/9.1/Cor
    Make sure to replace the --values flag with the name of your values file that you downloaded from the Kubenretes Connector onboarding page. 
 
 With that you've onboarded the Kubernetes Connector to your cluster!
+
+
+## Create XDR Profiles and Policies
+I suggest that you create an agent settings profile and that you enable "XDR Pro". Then, you can create a custom policy and assign it to your XDR agents. If you added an endpoint tag when you created the XDR agent installation package, this can be a nice way to select your specific XDR agents. 
+
+Follow the instructions to create an Agent Settings profile: 
+https://docs-cortex.paloaltonetworks.com/r/Cortex-CLOUD/Cortex-Cloud-Runtime-Security-Documentation/Set-up-agent-settings-profiles 
+
+Follow these instructions to create a policy: 
+https://docs-cortex.paloaltonetworks.com/r/Cortex-CLOUD/Cortex-Cloud-Runtime-Security-Documentation/Apply-profiles-to-endpoints 
