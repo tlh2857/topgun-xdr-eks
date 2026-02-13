@@ -58,3 +58,20 @@ Commands 3 and 4 clone this GitHub repo and deploy the CloudFormation template w
     ```
 
 
+## Installing XDR and the K8s Connector
+
+1. If you're installing Cortex XDR, first create an agent installation package in the UI or via the API. Then download the agent installation package and upload it to your cloudshell instnace by selecting the "Actions" button and then the "Upload File" option. This will upload the installer to the directory "/home/cloudshell-user". 
+
+2. The commands that you use to deploy the agent will vary depending on the method that you used to create the installation package.
+
+   Download the Kubernetes installer as a yaml file, then run `kubectl apply -f NAME-OF-YOUR-XDR-INSTALLER.yaml`.
+
+   Otherwise, if you downloaded it as a Helm chart, you'll first need to install helm: 
+   ```
+   curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-4
+   chmod +x get_helm.sh
+   ./get_helm.sh
+   ```
+   Once Helm is installed, you can then deploy the XDR Helm chart: 
+   ```
+   
