@@ -19,6 +19,17 @@
 
 Commands 3 and 4 clone this GitHub repo and deploy the CloudFormation template which 1) creates a new VPC with 2 private and 2 public subnets, a NAT Gateway and an Internet Gateway, and then creates an EKS Cluster with 2 t3.medium nodes.
 
+5. Step 4 should take about 15 minutes to complete. While it's deploying, create a new ECR Repository. You can do this manually, via the CLI, or using IaC, as we did in step 4. However, here is the command to do this via the AWS CLI:
+  ```
+   aws ecr create-repository --repository-name detection-container-repository
+  ```
+6. Let's pull the image, tag it, and upload it to the ECR repository that we just created. In CloudShell run:
+   ```
+   docker pull quay.io/crowdstrike/detection-container
+   
+
+You could also build it from scratch using the Dockefile that's included with the GitHub repository for DetectionContainer. However, for simplicity, I chose to let you just build it and push it. Feel free to do otherwise. https://github.com/CrowdStrike/detection-container
+
 
 
 
