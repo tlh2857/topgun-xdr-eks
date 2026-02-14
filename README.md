@@ -39,7 +39,7 @@ Commands 3 and 4 clone this GitHub repo and deploy the CloudFormation template w
    
    BTW, You could also build it from scratch using the Dockefile that's included with the GitHub repository for DetectionContainer. However, for simplicity, I chose to let you just build it and push it. Feel free to do otherwise. https://github.com/CrowdStrike/detection-container
 
-9. The EKS Cluster should be fully created about now. We'll need to authetnicate the Kubeneretes CLI (Kubectl) to the cluster in order to interact with it and deploy the DetectionContianer. Try running the following command in CloudShell.
+9. Once the EKS cluster is compelte and it's nodes are ready, we'll need to authetnicate the Kubeneretes CLI (Kubectl) to the cluster in order to interact with it and deploy the DetectionContianer. Try running the following command in CloudShell.
     ```
     aws eks update-kubeconfig --name my-eks-cluster
     ```
